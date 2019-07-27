@@ -8,8 +8,8 @@ class ProductsController < ApplicationController
 
 
   def add
-    session[:cart] ||= []
-    session[:cart] << params[:product]
+    
+  cart << params[:product]
     render :index
   end
 
