@@ -1,0 +1,22 @@
+<h1> <%= @cart %>
+   </h1>
+
+<%= form_tag ({controller: 'products', action: 'add', method: "post"}) do %>
+
+    <%= text_field_tag :product  %>
+    <%= submit_tag "add to cart"%>
+    <% if @cart %>
+        <% @cart.compact.each do |p| %>
+            <%= p  %><br>
+        <% end %>
+    <% end %>
+<% end %>
+
+
+
+
+<% if @cart %>
+    <% @cart.compact.each do |p| %>
+        <%= p  %><br>
+    <% end %>
+<% end %>
