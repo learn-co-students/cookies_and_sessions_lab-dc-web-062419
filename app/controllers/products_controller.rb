@@ -1,11 +1,11 @@
 class ProductsController < ActionController::Base
 
-    # before_action  :cart 
+    before_action  :cart 
     
     def cart
-        @cart = session[:cart] || []
+        @cart = session[:cart] ||= []
      end
-   
+#this shouldn't be here (should inherit from applicationController) but it doesn;t see ApplicationController's   
 
 
     def index
@@ -16,7 +16,7 @@ class ProductsController < ActionController::Base
     
     def add
         # byebug
-        @cart << "apples"
+        @cart << params[:product]
         render :index
     end
 
